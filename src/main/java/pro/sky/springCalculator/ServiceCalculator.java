@@ -1,6 +1,7 @@
 package pro.sky.springCalculator;
 
 import org.springframework.stereotype.Service;
+import pro.sky.springCalculator.exeption.DivisionException;
 
 @Service
 public class ServiceCalculator {
@@ -22,6 +23,7 @@ public class ServiceCalculator {
     }
 
     public int divide(Integer num1, Integer num2) {
+        if(num2 == 0) throw new DivisionException();
         return num1 / num2;
     }
 }
