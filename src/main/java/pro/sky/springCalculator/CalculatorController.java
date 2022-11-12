@@ -3,6 +3,7 @@ package pro.sky.springCalculator;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pro.sky.springCalculator.exeption.DivisionException;
 
 @RestController
 public class CalculatorController {
@@ -41,9 +42,10 @@ public class CalculatorController {
     @GetMapping("/calculator/divide")
     public String divide (@RequestParam (name = "num1") Integer num1,
                          @RequestParam(name = "num2") Integer num2) {
-        if(num2 == 0) return "На ноль делить нельзя";
         int divide = serviceCalculator.divide(num1, num2);
         return num1 + "/" + num2 + "=" + divide;
+
+
 
     }
 }
